@@ -11,11 +11,11 @@ def load_data(url):
     data = response.json()
     return pd.DataFrame(data)
 df = load_data(API_URL)
-all_area=df['Area'].unique()
-selected_area=st.selectbox("select the Area",all_area)
-filterd_df=df[df['Area']==selected_area]
-all_cuisine=filterd_df['Cuisines'].unique()
-selected_cuisine=st.selectbox("select the cuisine",all_cuisine)
-final_df=filterd_df[filterd_df['Cuisines']==selected_cuisine]
-st.bar_chart(final_df['AverageCost'])
+all_location=df['location'].unique()
+selected_location=st.selectbox("select the location",all_location)
+filterd_df=df[df['location']==selected_location]
+all_title=filterd_df['title'].unique()
+selected_title=st.selectbox("select the title",all_title)
+final_df=filterd_df[filterd_df['title']==selected_title]
+# st.bar_chart(final_df['AverageCost'])
 st.dataframe(final_df)
